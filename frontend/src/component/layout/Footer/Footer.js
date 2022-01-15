@@ -22,9 +22,9 @@ const Footer = () => {
 
       <div className="rightFooter">
         <h4>Follow Us</h4>
-        <a target="_blank" href="https://twitter.com/ShubhPatel_18">Twitter</a>
-        <a target="_blank" href="https://www.linkedin.com/in/shubh-patel-018/">LinkedIn</a>
-        <a target="_blank" href="https://codeforces.com/profile/shubh_18">Codeforces</a>
+        <a target="_blank" rel="noreferrer" href="https://twitter.com/ShubhPatel_18">Twitter</a>
+        <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/shubh-patel-018/">LinkedIn</a>
+        <a target="_blank" rel="noreferrer" href="https://codeforces.com/profile/shubh_18">Codeforces</a>
       </div>
     </footer>
   );
