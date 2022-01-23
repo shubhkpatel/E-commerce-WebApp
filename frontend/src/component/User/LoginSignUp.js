@@ -78,7 +78,7 @@ const LoginSignUp = ({ history, location }) => {
         }
 
         if (isAuthenticated) {
-            history.push("/account");
+            history.push(redirect);
         }
     }, [dispatch, error, alert, history, isAuthenticated, redirect]);
 
