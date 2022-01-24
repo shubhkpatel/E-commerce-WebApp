@@ -26,6 +26,8 @@ import Payment from './component/Cart/Payment';
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from 'axios';
+import OrderSuccess from './component/Cart/OrderSuccess';
+import myOrders from './component/Order/myOrders';
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -70,7 +72,8 @@ function App() {
         <Route exact path="/cart" component={Cart} />
         <ProtectedRoute exact path="/shipping" component={Shipping} />
         <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
-
+        <ProtectedRoute exact path="/success" component={OrderSuccess} />
+        <ProtectedRoute exact path="/orders" component={myOrders} />
 
         {stripeApiKey && (
           <Elements stripe={loadStripe(stripeApiKey)}>
