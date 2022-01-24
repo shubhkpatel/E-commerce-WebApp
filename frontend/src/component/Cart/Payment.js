@@ -17,6 +17,7 @@ import "./Payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import { createOrder, clearErrors } from "../../actions/orderAction";
 
 const Payment = ({ history }) => {
     const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -29,7 +30,7 @@ const Payment = ({ history }) => {
 
     const { shippingInfo, cartItems } = useSelector((state) => state.cart);
     const { user } = useSelector((state) => state.user);
-
+    const { error } = useSelector((state) => state.newOrder);
 
     const paymentData = {
         amount: Math.round(orderInfo.totalPrice * 100),
@@ -93,7 +94,7 @@ const Payment = ({ history }) => {
                         status: result.paymentIntent.status,
                     };
 
-                    
+                    dispatch(createOrder(order));
 
                     history.push("/success");
                 } else {
@@ -106,6 +107,12 @@ const Payment = ({ history }) => {
         }
     };
 
+    useEffect(() => {
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors());
+        }
+    }, [dispatch, error, alert])
 
     return (
         <Fragment>
