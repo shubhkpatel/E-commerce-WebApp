@@ -158,11 +158,7 @@ function App() {
           isAdmin={true}
           component={ProductReviews}
         />
-        <Route
-          component={
-            window.location.pathname === "/process/payment" ? null : NotFound
-          }
-        />
+        
 
       </Switch>
       <Footer />
